@@ -1,0 +1,32 @@
+{% layout "base" %}
+
+{% block content %} 
+    <ul class="navigation">
+        {% for b in buttons %}
+            <a href="#" class="col btn {{b.class}}">{{b.name}}</a>
+        {% endfor %}
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul
+    </div>
+
+    <h3 class="panel-title">Input</h3>
+    <div class="row row-center">
+        <div class="col form">
+            <input class="form__control" type="text" value="" placeholder="Inactive">
+        </div>
+        <div class="col form form_error">
+            <input class="form__control" type="text" value="" placeholder="Error">
+        </div>
+        <div class="col form form_success">
+            <input class="form__control" type="text" value="" placeholder="Success">
+            <span class="form__icon fui-check"></span>
+        </div>
+        <div class="col form">
+            <input class="form__control" type="text" value="Disabled" disabled="disabled">
+        </div>
+    </div>
+
+{% endblock %}
