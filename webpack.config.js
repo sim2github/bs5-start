@@ -3,8 +3,7 @@ const path = require('path')
 const glob = require('glob')
 const csso = require('postcss-csso')
 const autoprefixer = require('autoprefixer')
-const mqpacker = require('css-mqpacker')
-const sortCSSmq = require('sort-css-media-queries')
+const smqueries = require('postcss-sort-media-queries')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const chokidar = require('chokidar')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -193,10 +192,10 @@ module.exports = (_ = {}, argv) => {
                   return [
                     csso,
                     autoprefixer,
-                    mqpacker({
+                    smqueries({
                       sort: mobileFirst
-                        ? sortCSSmq
-                        : sortCSSmq.desktopFirst
+                        ? 'mobile-first' 
+                        : 'desktop-first'
                     })
                   ]
                 }
