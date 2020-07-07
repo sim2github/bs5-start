@@ -13,70 +13,53 @@ const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
-let CONF = {
-  mobileFirst:true,
+const CONF = {
+  mobileFirst: true,
   entry: {
-    main: 'src/main.js'
+    main: 'main.js'
   },
   src: 'src',
   dist: 'dist',
   clean: 'dist',
-  watch: ['src/pages/**/*.liquid', 'src/pages/data.json'],
+  // watch: ['./src/pages/**/*.liquid', './src/pages/data.json'],
   pages: 'src/pages/*.liquid',
   partials: 'src/pages/partials/',
   data: 'src/pages/data.json',
   copy: [
-    {
-      from: 'src/images',
-      to: 'dist/images',
-      type: 'dir'
-    },
+    // {
+    //   from: 'images',
+    //   to: 'images',
+    //   type: 'dir'
+    // },
     // {
     //   from: 'src/fonts',
     //   to: 'dist/fonts',
     //   type: 'dir'
     // },
     {
-      from: 'src/.nojekyll',
-      to: 'dist/.nojekyll',
-      type: 'file'
-    },
-    {
-      from: 'src/favicon.ico',
-      to: 'dist/favicon.ico',
+      from: '.nojekyll',
+      to: '',
       type: 'file'
     }
+    // {
+    //   from: 'favicon.ico',
+    //   to: 'favicon.ico',
+    //   type: 'file'
+    // }
   ]
 }
 
-function absPath(obj, fn) {
-  const handler = val => (typeof val === 'object' ? absPath(val, fn) : fn(val))
-  if (Array.isArray(obj)) {
-    return obj.map(handler)
-  }
-  if (typeof obj === 'object') {
-    return Object.keys(obj).reduce((res, key) => {
-      res[key] = handler(obj[key])
-      return res
-    }, {})
-  }
-  return obj
-}
-
-CONF = absPath(CONF, p => path.join(__dirname, p))
-
-// eslint-disable-next-line no-unused-vars
-module.exports = (_ = {}, argv) => {
+module.exports = (__ = {}, argv) => {
   const isDEV =
     process.env.NODE_ENV === 'development' || argv.mode === 'development'
 
   const config = {
     mode: isDEV ? 'development' : 'production',
     devtool: isDEV ? 'inline-cheap-source-map' : 'none',
-    context: CONF.src,
+    context: path.join(__dirname, CONF.src),
     entry: CONF.entry,
     output: {
-      path: CONF.dist,
+      path: path.join(__dirname, CONF.dist),
       filename: isDEV ? '[name].js' : '[name].[chunkhash].js'
     },
     watch: isDEV,
@@ -84,7 +67,7 @@ module.exports = (_ = {}, argv) => {
       host: '0.0.0.0',
       port: 9090,
       overlay: true,
-      before(app, server) {
+      before(__, server) {
         chokidar.watch(CONF.watch, {}).on('all', () => {
           server.sockWrite(server.sockets, 'content-changed')
         })
@@ -92,7 +75,10 @@ module.exports = (_ = {}, argv) => {
     },
     resolve: {
       extensions: ['.js', '.json'],
-      modules: [path.join(__dirname, 'node_modules'), CONF.src]
+      modules: [
+        path.join(__dirname, 'node_modules'),
+        path.join(__dirname, CONF.src)
+      ]
     },
     optimization: {
       splitChunks: {
@@ -124,11 +110,15 @@ module.exports = (_ = {}, argv) => {
         new SpriteLoaderPlugin()
       ]
 
-      for (const file of glob.sync(CONF.pages)) {
+      for (const file of glob.sync(path.join(__dirname, CONF.pages))) {
         common.push(
           new HtmlWebpackPlugin({
             template: file,
-            filename: path.join(CONF.dist, `${path.parse(file).name}.html`),
+            filename: path.join(
+              __dirname,
+              CONF.dist,
+              `${path.parse(file).name}.html`
+            ),
             inject: 'head',
             minify: !isDEV
           })
@@ -165,8 +155,9 @@ module.exports = (_ = {}, argv) => {
             {
               loader: path.resolve('./liquid-loader'),
               options: {
-                root: CONF.partials,
-                data: require(CONF.data)
+                root: path.join(__dirname, CONF.partials),
+                data: require(path.join(__dirname, CONF.data)),
+                dev: isDEV
               }
             }
           ]
@@ -193,9 +184,7 @@ module.exports = (_ = {}, argv) => {
                     csso,
                     autoprefixer,
                     smqueries({
-                      sort: mobileFirst
-                        ? 'mobile-first' 
-                        : 'desktop-first'
+                      sort: CONF.mobileFirst ? 'mobile-first' : 'desktop-first'
                     })
                   ]
                 }

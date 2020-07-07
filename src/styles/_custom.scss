@@ -1,0 +1,80 @@
+//
+// Variables
+// --------------------------------------------------
+
+// == Colors
+//
+//##
+
+// Color swatches
+$turquoise: #1abc9c;
+$green-sea: #16a085;
+
+$emerald: #2ecc71;
+$nephritis: #27ae60;
+
+$peter-river: #3498db;
+$belize-hole: #2980b9;
+
+$amethyst: #9b59b6;
+$wisteria: #8e44ad;
+
+$wet-asphalt: #34495e;
+$midnight-blue: #2c3e50;
+
+$sun-flower: #f1c40f;
+$orange: #f39c12;
+
+$carrot: #e67e22;
+$pumpkin: #d35400;
+
+$alizarin: #e74c3c;
+$pomegranate: #c0392b;
+
+$clouds: #ecf0f1;
+$silver: #bdc3c7;
+
+$concrete: #95a5a6;
+$asbestos: #7f8c8d;
+
+// Grays
+$gray: $concrete;
+$gray-light: $silver;
+$inverse: white;
+
+// Brand colors
+$brand-primary: $wet-asphalt;
+$brand-secondary: $turquoise;
+$brand-success: $emerald;
+$brand-warning: $sun-flower;
+$brand-danger: $alizarin;
+$brand-info: $peter-river;
+
+// Social colors
+$social-pinterest: #cb2028;
+$social-linkedin: #0072b5;
+$social-stumbleupon: #ed4a13;
+$social-googleplus: #2d2d2d;
+$social-facebook: #2f4b93;
+$social-twitter: #00bdef;
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+$body-bg: #fff;
+$text-color: $brand-primary;
+
+//** Global textual link color.
+$link-color: $green-sea;
+$link-hover-color: $turquoise;
+//** Link hover decoration.
+$link-hover-decoration: none;
+
+//== Typography
+//
+//## Font, line-height for body text, headings, and more.
+
+$font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+  'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol';

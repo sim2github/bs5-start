@@ -1,9 +1,5 @@
 {% layout "base" %}
 
 {% block content %} 
-    <ul class="navigation">
-        {% for a in nav %}
-        <li><a href="{{a.href}}">{{a.name}}</a></li>
-        {% endfor %}
-    </ul>
+    {% include "navbar" %}
 {% endblock %}
