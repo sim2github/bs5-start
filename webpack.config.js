@@ -5,7 +5,6 @@ const csso = require('postcss-csso')
 const autoprefixer = require('autoprefixer')
 const smqueries = require('postcss-sort-media-queries')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const chokidar = require('chokidar')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -21,7 +20,6 @@ const CONF = {
   src: 'src',
   dist: 'dist',
   clean: 'dist',
-  // watch: ['./src/pages/**/*.liquid', './src/pages/data.json'],
   pages: 'src/pages/*.liquid',
   partials: 'src/pages/partials/',
   data: 'src/pages/data.json',
@@ -32,8 +30,8 @@ const CONF = {
     //   type: 'dir'
     // },
     // {
-    //   from: 'src/fonts',
-    //   to: 'dist/fonts',
+    //   from: 'fonts',
+    //   to: 'fonts',
     //   type: 'dir'
     // },
     {
@@ -66,12 +64,7 @@ module.exports = (__ = {}, argv) => {
     devServer: {
       host: '0.0.0.0',
       port: 9090,
-      overlay: true,
-      before(__, server) {
-        chokidar.watch(CONF.watch, {}).on('all', () => {
-          server.sockWrite(server.sockets, 'content-changed')
-        })
-      }
+      overlay: true
     },
     resolve: {
       extensions: ['.js', '.json'],
