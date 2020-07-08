@@ -149,7 +149,7 @@ module.exports = (__ = {}, argv) => {
               loader: path.resolve('./liquid-loader'),
               options: {
                 root: path.join(__dirname, CONF.partials),
-                data: require(path.join(__dirname, CONF.data)),
+                data: path.join(__dirname, CONF.data),
                 dev: isDEV
               }
             }

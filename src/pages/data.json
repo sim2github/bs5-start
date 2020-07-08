@@ -1,8 +1,11 @@
 {
+  "title": "bootsrap 5 cover",
+  "description": "bootsrap 5 cover",
   "nav": [
     {
       "name": "Home",
-      "href": "#"
+      "href": "#",
+      "active": true
     },
     {
       "name": "About",
@@ -15,6 +18,24 @@
     {
       "name": "Contact",
       "href": "#"
+    }
+  ],
+  "carousel": [
+    {
+      "header": "Example headline.",
+      "text": "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+      "btn": "Sign up today",
+      "active": true
+    },
+    {
+      "header": "Another example headline.",
+      "text": "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+      "btn": "Learn more"
+    },
+    {
+      "header": "One more for good measure.",
+      "text": "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+      "btn": "Browse gallery"
     }
   ]
 }

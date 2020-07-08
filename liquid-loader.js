@@ -36,7 +36,16 @@ module.exports = function(content) {
     recursiveDependency(tmpl)
   }
 
-  Engine.render(tmpl, config.data || {})
+  function data(path) {
+    if (path) {
+      m.addDependency(path)
+      delete require.cache[require.resolve(path)]
+      return require(path)
+    }
+    return {}
+  }
+
+  Engine.render(tmpl, data(config.data))
     .then(function(html) {
       return callback(null, html)
     })
