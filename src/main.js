@@ -9,4 +9,6 @@ import 'scripts/onload'
 // recurse(require.context('icons', false, /\.svg$/))
 
 import 'popper.js'
-import 'bootstrap'
+
+// import 'bootstrap'
+import 'scripts/custom_bootstrap'
