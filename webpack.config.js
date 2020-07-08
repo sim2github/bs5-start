@@ -11,6 +11,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
 
 const CONF = {
   mobileFirst: true,
@@ -74,16 +75,6 @@ module.exports = (__ = {}, argv) => {
       ]
     },
     optimization: {
-      splitChunks: {
-        cacheGroups: {
-          shared: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendor',
-            enforce: true,
-            chunks: 'all'
-          }
-        }
-      },
       minimize: !isDEV,
       minimizer: [
         new TerserPlugin({
@@ -119,6 +110,7 @@ module.exports = (__ = {}, argv) => {
       }
 
       const production = [
+        new CleanWebpackPlugin(CONF.clean),
         new MiniCssExtractPlugin({
           path: CONF.dist,
           filename: isDEV ? '[name].css' : '[name].[contenthash].css',
@@ -126,7 +118,10 @@ module.exports = (__ = {}, argv) => {
             ? '[name].[id].css'
             : '[name].[id].[contenthash].css'
         }),
-        new CleanWebpackPlugin(CONF.clean)
+        new PurgecssPlugin({
+          paths: glob.sync(`${CONF.src}/**/*`, { nodir: true }),
+          whitelistPatterns: [/^carousel-/]
+        })
       ]
 
       const development = []

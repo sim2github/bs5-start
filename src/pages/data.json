@@ -1,6 +1,6 @@
 {
-  "title": "bootsrap 5 cover",
-  "description": "bootsrap 5 cover",
+  "title": "Bootstrap 5",
+  "description": "Bootsrap 5 carousel template",
   "nav": [
     {
       "name": "Home",
@@ -36,6 +36,40 @@
       "header": "One more for good measure.",
       "text": "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.",
       "btn": "Browse gallery"
+    }
+  ],
+  "market": [
+    {
+      "header": "Heading",
+      "text": "Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.",
+      "btn": "View details »"
+    },
+    {
+      "header": "Heading",
+      "text": "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.",
+      "btn": "View details »"
+    },
+    {
+      "header": "Heading",
+      "text": "Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.",
+      "btn": "View details »"
+    }
+  ],
+  "future": [
+    {
+      "header": "First featurette heading.",
+      "subheader": "It’ll blow your mind.",
+      "text": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo."
+    },
+    {
+      "header": "Oh yeah, it’s that good.",
+      "subheader": "See for yourself.",
+      "text": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo."
+    },
+    {
+      "header": "And lastly, this one.",
+      "subheader": "Checkmate.",
+      "text": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo."
     }
   ]
 }
