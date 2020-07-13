@@ -1,0 +1,23 @@
+dist: trusty
+sudo: false
+language: node_js
+node_js:
+  - "13"
+cache:
+  directories:
+    - .npm
+    - node_modules
+install:
+  - npm install
+script:
+  - npm run build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github-token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
+  verbose: true
+  local-dir: dist
+  keep-history: true
+  on:
+    branch: master
+
