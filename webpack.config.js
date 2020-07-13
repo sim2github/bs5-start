@@ -39,12 +39,12 @@ const CONF = {
       from: '.nojekyll',
       to: '',
       type: 'file'
+    },
+    {
+      from: 'favicon/favicon.ico',
+      to: '',
+      type: 'file'
     }
-    // {
-    //   from: 'favicon.ico',
-    //   to: 'favicon.ico',
-    //   type: 'file'
-    // }
   ]
 }
 
