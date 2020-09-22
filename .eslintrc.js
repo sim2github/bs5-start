@@ -4,10 +4,7 @@ module.exports = {
     es6: true,
     node: true
   },
-  extends: [
-    'standard',
-    'plugin:prettier/recommended'
-  ],
+  extends: ['plugin:prettier/recommended'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
@@ -16,10 +13,6 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  rules: {
-  },
-  plugins: [
-    'prettier',
-    'shopify'
-  ]
+  rules: {},
+  plugins: ['prettier', 'shopify']
 }

@@ -1,10 +1,11 @@
 # bs5-start
 
 Bootstrap 5 starter template
+Demo page https://sim2github.github.io/bs5-start/
 
 ## TODO
 
-- [ ] CI build and deploy to github pages (documentation as content)
+- [x] CI build and deploy to github pages (documentation as content)
 - [ ] Image processing (formats, sizes)
 - [ ] SVG sprite build
 - [ ] Bootstrap custom variables

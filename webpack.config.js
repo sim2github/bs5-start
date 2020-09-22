@@ -76,6 +76,8 @@ module.exports = (__ = {}, argv) => {
     },
     optimization: {
       minimize: !isDEV,
+      namedModules: true,
+      noEmitOnErrors: true,
       minimizer: [
         new TerserPlugin({
           parallel: true,
@@ -87,8 +89,6 @@ module.exports = (__ = {}, argv) => {
     },
     plugins: (() => {
       const common = [
-        new webpack.NamedModulesPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
         new CopyWebpackPlugin(CONF.copy),
         new ImageminWebpWebpackPlugin(),
         new SpriteLoaderPlugin()
